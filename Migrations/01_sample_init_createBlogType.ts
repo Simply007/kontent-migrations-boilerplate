@@ -23,23 +23,29 @@ const BuildBlogPostTypeData = (
     builder: ContentTypeElementsBuilder
 ): ContentTypeModels.IAddContentTypeData => {
     return {
-        name: 'Blog',
-        codename: 'blog',
+        name: 'Post',
+        codename: 'post',
         elements: [
             builder.textElement({
                 name: 'Title',
                 codename: 'title',
                 type: 'text',
             }),
-            builder.textElement({
-                name: 'Author',
-                codename: 'author',
-                type: 'text',
+            builder.assetElement({
+                name: 'Image',
+                codename: 'image',
+                type: 'asset',
+                allowed_file_types: 'adjustable',
             }),
-            builder.textElement({
-                name: 'Text',
-                codename: 'text',
-                type: 'text',
+            builder.richTextElement({
+                name: 'Content',
+                codename: 'content',
+                type: 'rich_text',
+                is_required: true,
+                maximum_text_length: {
+                    applies_to: 'words',
+                    value: 500,
+                },
             }),
         ],
     };
