@@ -6,7 +6,7 @@ import { ManagementClient } from '@kentico/kontent-management';
 const migration: MigrationModule = {
     order: 2,
     run: async (apiClient: ManagementClient) => {
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 153; i++) {
             // Create content item
             const itemResponse = await apiClient
                 .addContentItem()
